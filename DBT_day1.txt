@@ -1,0 +1,166 @@
+
+-----------------------------------------------------Assignment-1---------------------------------------------------
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| dbt                |
+| information_schema |
+| manju              |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.20 sec)
+
+mysql> create database cdac;
+Query OK, 1 row affected (0.17 sec)
+
+mysql> use cdac;
+Database changed
+mysql> create table salespeople(SNUM int(4),SNAME varchar(10),CITY varchar(10),COMM float(3,2));
+Query OK, 0 rows affected, 2 warnings (0.89 sec)
+
+mysql> desc salespeople;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| SNUM  | int         | YES  |     | NULL    |       |
+| SNAME | varchar(10) | YES  |     | NULL    |       |
+| CITY  | varchar(10) | YES  |     | NULL    |       |
+| COMM  | float(3,2)  | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.06 sec)
+
+mysql> insert into salespeople values(1001,'Peel','London',.12);
+Query OK, 1 row affected (0.44 sec)
+
+mysql> insert into salespeople values(1002,'Serres','San Jose',.13);
+Query OK, 1 row affected (0.19 sec)
+
+mysql> insert into salespeople values(1004,'Motika','London',.11);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into salespeople values(1007,'Rifkin','Barcelona',.15);
+Query OK, 1 row affected (0.41 sec)
+
+mysql> insert into salespeople values(1003,'Axelord','New York',.10);
+Query OK, 1 row affected (1.14 sec)
+
+mysql> select * from salespeople;
++------+---------+-----------+------+
+| SNUM | SNAME   | CITY      | COMM |
++------+---------+-----------+------+
+| 1001 | Peel    | London    | 0.12 |
+| 1002 | Serres  | San Jose  | 0.13 |
+| 1004 | Motika  | London    | 0.11 |
+| 1007 | Rifkin  | Barcelona | 0.15 |
+| 1003 | Axelord | New York  | 0.10 |
++------+---------+-----------+------+
+5 rows in set (0.00 sec)
+
+mysql> create table CUSTOMERS(CNUM int(4),CNAME varchar(10),CITY varchar(10),RATING int(4),SNUM int(4));
+Query OK, 0 rows affected, 3 warnings (1.24 sec)
+
+mysql> insert into CUSTOMERS values(2001,'Hoffman','London',100,1001);
+Query OK, 1 row affected (0.33 sec)
+
+mysql> select * from customers;
++------+---------+--------+--------+------+
+| CNUM | CNAME   | CITY   | RATING | SNUM |
++------+---------+--------+--------+------+
+| 2001 | Hoffman | London |    100 | 1001 |
++------+---------+--------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> insert into CUSTOMERS values(2002,'Giovanni','Rome',200,1003);
+Query OK, 1 row affected (0.21 sec)
+
+mysql> insert into CUSTOMERS values(2003,'Liu','San Jose',200,1002);
+Query OK, 1 row affected (0.17 sec)
+
+mysql> insert into CUSTOMERS values(2004,'Grass','Berlin',300,1002);
+Query OK, 1 row affected (0.19 sec)
+
+mysql> insert into CUSTOMERS values(2006,'Clemens','London',100,1001);
+Query OK, 1 row affected (0.42 sec)
+
+mysql> insert into CUSTOMERS values(2008,'Cisneros','San Jose',300,1007);
+Query OK, 1 row affected (0.57 sec)
+
+mysql> insert into CUSTOMERS values(2007,'Pereira','Rome',100,1004);
+Query OK, 1 row affected (0.19 sec)
+
+mysql> select * from customers;
++------+----------+----------+--------+------+
+| CNUM | CNAME    | CITY     | RATING | SNUM |
++------+----------+----------+--------+------+
+| 2001 | Hoffman  | London   |    100 | 1001 |
+| 2002 | Giovanni | Rome     |    200 | 1003 |
+| 2003 | Liu      | San Jose |    200 | 1002 |
+| 2004 | Grass    | Berlin   |    300 | 1002 |
+| 2006 | Clemens  | London   |    100 | 1001 |
+| 2008 | Cisneros | San Jose |    300 | 1007 |
+| 2007 | Pereira  | Rome     |    100 | 1004 |
++------+----------+----------+--------+------+
+7 rows in set (0.00 sec)
+
+mysql> create table ORDERS(ONUM int(4),AMT float(7,2),ODATE date,CNUM int(4),SNUM int(4));
+Query OK, 0 rows affected, 4 warnings (1.71 sec)
+
+mysql> insert into ORDERS values(3001,18.69,'1990-10-03',2008,1007);
+Query OK, 1 row affected (0.18 sec)
+
+mysql> select * from orders;
++------+-------+------------+------+------+
+| ONUM | AMT   | ODATE      | CNUM | SNUM |
++------+-------+------------+------+------+
+| 3001 | 18.69 | 1990-10-03 | 2008 | 1007 |
++------+-------+------------+------+------+
+1 row in set (0.00 sec)
+
+mysql> insert into ORDERS values(3003,767.19,'1990-10-03',2001,1001);
+Query OK, 1 row affected (0.20 sec)
+
+mysql> insert into ORDERS values(3002,1900.10,'1990-10-03',2007,1004);
+Query OK, 1 row affected (0.19 sec)
+
+
+mysql> insert into ORDERS values(3005,5160.45,'1990-10-03',2003,1002);
+Query OK, 1 row affected (0.18 sec)
+
+mysql> insert into ORDERS values(3006,1098.16,'1990-10-03',2008,1007);
+Query OK, 1 row affected (0.18 sec)
+
+mysql> insert into ORDERS values(3009,1713.23,'1990-10-03',2002,1003);
+Query OK, 1 row affected (0.20 sec)
+
+mysql> insert into ORDERS values(3007,75.75,'1990-10-03',2004,1002);
+Query OK, 1 row affected (0.16 sec)
+
+mysql> insert into ORDERS values(3008,4723.00,'1990-10-03',2006,1001);
+Query OK, 1 row affected (0.17 sec)
+
+mysql> insert into ORDERS values(3010,1309.95,'1990-10-03',2004,1002);
+Query OK, 1 row affected (0.17 sec)
+
+mysql> insert into ORDERS values(3011,9891.88,'1990-10-06',2006,1001);
+Query OK, 1 row affected (0.16 sec)
+
+mysql> select * from orders;
++------+---------+------------+------+------+
+| ONUM | AMT     | ODATE      | CNUM | SNUM |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3003 |  767.19 | 1990-10-03 | 2001 | 1001 |
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3007 |   75.75 | 1990-10-04 | 2004 | 1002 |
+| 3008 | 4723.00 | 1990-10-05 | 2006 | 1001 |
+| 3010 | 1309.95 | 1990-10-06 | 2004 | 1002 |
+| 3011 | 9891.88 | 1990-10-06 | 2006 | 1001 |
++------+---------+------------+------+------+
+10 rows in set (0.00 sec)
