@@ -1,0 +1,12 @@
+----------------------------------Assignment-3---------------------------
+
+1.Does ANSI recognize the data type DATE? 
+->Yes,ANSI recognize data type DATE.In "YYYY-MM-DD" is default format.
+
+2.Which subdivision of SQL is used to INSERT values in table?
+->There are 4 Subdivision
+	1)DDL-Data Definition Language
+	2)DML-Data Manipulation Language
+	3)DCL-Data Control Language
+	4)DQL-Data Query Language
+	 According to this for INSERT values it comes under DML(Data Manipulation Language). 
