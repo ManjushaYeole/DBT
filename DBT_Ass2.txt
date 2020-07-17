@@ -1,0 +1,14 @@
+-------------------------------Assignment-2----------------------------------
+
+1.Which field of Customer table is the primary key?
+->CNUM
+
+2.What is the 4th column of Customer table?
+->RATING.
+
+3.What is another word For Row?For Column?
+->For Row:-Tuple,Entity,Opportunity.
+  For Column:-Attribute,Method.
+
+4.Why isn't it possible to see first five row of table?
+->Rows of table are not stored sequentially.Rows of table are scattered all over DB server,all rows will always be in ascending order of row address.We didn't know the row address and actual position of row in memory that's why it is impossible to see first five rows of table.
