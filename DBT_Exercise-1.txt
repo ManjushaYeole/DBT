@@ -1,0 +1,144 @@
+
+---------------------------------------------------Exercise-1---------------------------------------------------------
+
+1.Create table SEMP with the following structure:-
+
+EMPNO CHAR(4)
+EMPNAME CHAR(20)
+BASIC FLOAT(9,2)
+DEPTNO CHAR(20)
+DEPTHEAD CHAR(4)
+
+create table SEMP 
+(
+ EMPNO CHAR(4),
+ EMPNAME CHAR(20),
+ BASIC FLOAT(9,2),
+ DEPTNO CHAR(20),
+ DEPTHEAD CHAR(4)
+);
+
+2.Create table SDEPT with the following structure:-
+
+DEPTNO CHAR(2)
+DEPTNAME CHAR(15)
+
+create table SDEPT
+(
+ DEPTNO CHAR(2),
+ DEPTNAME CHAR(15)
+);
+
+3.Insert into the SDEPT table the following values:-
+
+10,Development
+20,Training
+
+insert into SDEPT(DEPTNO,DEPTNAME)
+values(10,'Development),
+      (20,'Training');
+
+4.Insert into the SEMP table the following values:-
+
+0001,SUNIL,6000,10
+0002,HIREN,8000,20
+0003,ALI,4000,10,0001
+0004,GEORGE,6000,0002
+
+insert into SEMP(EMPNO,EMPNAME,BASIC,DEPTNO,DEPTHEAD)
+values('0001','SUNIL','6000','10','NULL'),
+      ('0002','HIREN','8000','20','NULL'),
+      ('0003','ALI','4000','10','0001'),
+      ('0004','GEORGE','6000','NULL','20');
+
+Create S,P,J,SPJ tables as specified below and insert a few rows in each table:-
+
+SUPPLIER
+(S#,Sname,Status,City)  -S
+PARTS
+(P#,Pname,Color,Weight,City)  -P
+PROJECT
+(J#,Jname,City)  -J
+SUPPLIER-PARTS-PROJECT
+(S#,P#,J#,Qty)   -SPJ
+
+Sample data for S# column:-'S1','S2','S3',etc.
+Sample data for P# column:-'P1','P2','P3',etc.
+Sample data for J# column:-'J1','J2','J3',etc.
+Sample data for Status column:- 10,20,30,etc.
+
+create table S
+(
+ `S#` int(4),
+ Sname varchar(10),
+ Status char(10),
+ City varchar(10)
+);
+
+create table P
+(
+ `P#` int(4),
+ Pname varchar(10),
+ Color varchar(10),
+ Weight float(7,2),
+ City varchar(10)
+);
+
+create table J
+(
+ `J#` int(4),
+ Jname varchar(10),
+ City varchar(10)
+);
+
+create table SPJ
+(
+ `S#` int(4),
+ `P#` int(4),
+ `J#` int(4),
+ Qty float(7,2)
+);
+
+
+5.Display all the data from S table 
+select * from S;
+
+6.Display only the S# and SNAME fields from the S table.
+select `S#`,Sname from s;
+
+7.Display the PNAME and COLOR from the P table for CITY="London".
+select Pname,Color from P where CITY='London';
+
+8.Display all the Suppliers from London.
+select * from S where CITY='London';
+
+9.Display all the Suppliers from Paris or Athens.
+select * from S where CITY='Paris' or CITY='Athens';
+
+10.Display all the Projects in Athens.
+select * from J where CITY='Athens';
+
+11.Display all the partnames with weight between 12 and 14(inclusive of both).
+select Pname,Weight from P where Weight between 12 and 14;
+
+12.Display all the Suppliers with status greater than or equal to 20.
+select * from S where status>=20;
+
+13.Display all the Suppliers except the Suppliers from London.
+select * from S where CITY!='London';
+
+14.Display only the Cities from where the Suppliers come from.
+select city from S;
+
+15.Assuming that the Part Weight is in GRAMS,display the same in MILLIGRAMS and KILOGRAMS.
+a.select weight*1000 from P;
+b.select weight/1000 from P; 
+
+ 
+
+
+
+
+ 
+
+
