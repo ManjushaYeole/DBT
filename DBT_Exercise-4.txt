@@ -1,0 +1,50 @@
+
+-----------------------------------------Exercise-4----------------------------------------------
+
+1.Display the minimum status in the Supplier table.
+->select min(status) from S;
+ 
+2.Display the maximum Weight in the Parts table.
+->select max(weight) from P; 
+
+3.Display the average Weight of the Parts.
+->select avg(weight)from P;
+
+4.Display the total Quantity sold for part 'P1'.
+->select `P#`,qty  from spj where `P#`=P1;
+
+5.Display the total Quantity sold for each part.
+->select `P#`,count(qty) from spj group by `P#`;
+
+6.Display the average Quantity sold for each part.
+->select `P#`avg(qty) from spj group by `P#`;
+
+7.Display the maximum Quantity sold for each part,provided the maximum Quantity is greater than 800.
+->select max(qty)from spj group by `P#` having max(qty)>800;
+
+8.Display the status and the count of Suppliers with that status.
+->select status,count(*) from supplier group by status;
+
+9.Display the count of Projects going on in different cities.
+->select distinct(city),count(city) from P group by city;
+
+10.What is the difference between COUNT(Status) and COUNT(*)?
+->count(status)-it will give count of only status row not whole table row.
+  count(*)-it will give count of total rows in table.
+
+11.Display the status and the Count of Suppliers with that Status in the following format as shown below:-
+   Status	Count
+   Ten		  1
+   Twenty	  2
+   Thirty 	  3
+
+->select status,case
+  when status=10 then'TEN'
+  when status=20 then'TWENTY'
+  when status=30 then'THIRTY'
+  when status=40 then'FOURTY'
+  when status=50 then 'FIFTY'
+  else 'Others'
+  end end status,count(sname) 
+  from S group by Status 
+  order by sname;
