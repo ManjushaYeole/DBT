@@ -1,0 +1,22 @@
+
+----------------------------------------------------Assignment-15---------------------------------------------------
+
+1.Assume there is table called Multicast,with all of the same column definition as Salespeople.Write a command that inserts all salespeople with more than one customer 
+  into this table.
+->create table Multicast as select * from salespeople
+	where snum in (select snum from customers
+     	GROUP BY snum
+        having count(snum)>1);
+
+
+2.Write a command that deletes all customers with no current orders.
+->delete customers where cnum=
+	any (select cnum from orders
+        where cnum not in (select cnum from customers));
+
+3.Write a command that increases by twenty percent the commissions of all salespeople with total orders above Rs.3,000.
+->update salespeople set comm=(comm+comm*0.20)
+	where snum in(select snum FROM orders group by snum having sum(amt)>3000);
+
+
+  
